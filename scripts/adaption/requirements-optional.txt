@@ -1,0 +1,3 @@
+# Offline prepare/validate do not import the SDK.
+# Install only in a project-local venv when explicitly estimating.
+adaption==0.14.0

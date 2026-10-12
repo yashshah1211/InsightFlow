@@ -1,0 +1,120 @@
+{
+  "recordedAtUtc": "2026-10-11T18:25:58.7121412Z",
+  "sourceBaseCommit": "7926db35abce3a02b6914867ad4e0926030583e9",
+  "sourceWasUncommittedAtUpload": true,
+  "account": "yashshah1211",
+  "scope": "yashshah1211s-projects",
+  "plan": "hobby",
+  "project": {
+    "projectId": "prj_J3kD79zIEtR84ytA1oLqndYAUm4D",
+    "orgId": "team_pV8mlFqYXbGw5rSoqm39Ry0S",
+    "projectName": "insightflow-preview"
+  },
+  "deployment": {
+    "id": "dpl_C3btGi39izNqxvfNS4ZYhfciaauo",
+    "url": "insightflow-preview-2vq7zoiw1-yashshah1211s-projects.vercel.app",
+    "target": null,
+    "readyState": "READY",
+    "projectId": "prj_J3kD79zIEtR84ytA1oLqndYAUm4D",
+    "framework": "nextjs",
+    "nodeVersion": "24.x",
+    "buildCommand": "npm run build",
+    "installCommand": "npm ci"
+  },
+  "previewConfirmedByCli": true,
+  "firstDeployment": {
+    "id": "dpl_GcLxSm6ZU7VZLHv7Tm1LZiAnJxzU",
+    "requestedTarget": "preview",
+    "actualTarget": "production",
+    "retainedWithUserAcknowledgement": true
+  },
+  "correctiveDeploymentSeparatelyApproved": true,
+  "publicAccessSeparatelyApproved": true,
+  "applicationSettings": {
+    "INSIGHTFLOW_DATA_MODE": "fixture",
+    "INSIGHTFLOW_WRITES_ENABLED": "false",
+    "INSIGHTFLOW_DEPLOYMENT_PROFILE": "synthetic-preview"
+  },
+  "data": {
+    "source": "authored fixture",
+    "records": 10,
+    "patterns": 9,
+    "repeatedRows": 1,
+    "issues": 5,
+    "goldLabelsTransferred": false,
+    "officialDatasetTransferred": false
+  },
+  "packaging": {
+    "checkedAt": "2026-10-11T18:15:22.24Z",
+    "fileCount": 80,
+    "sourceBytes": 479688,
+    "manifestSha256": "acc51a132e534496bd999b3de955d35a83e1d79aa0cbf6cc65626af0f1b3084c",
+    "fixtureCsvSha256": "47227340f1060a82d7d39713a6b30fee391d0a84f73b4636795aee7831e037af",
+    "records": 10,
+    "patterns": 9,
+    "repeatedRows": 1,
+    "buildTraces": 49,
+    "generatedFiles": 1405,
+    "protectedSourceExcluded": true,
+    "privateValueScanPassed": true
+  },
+  "localChecks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "typescriptTests": 96,
+    "typescriptFiles": 17,
+    "pythonTests": 23,
+    "build": "passed",
+    "security": "passed",
+    "previewSmoke": "passed",
+    "requiredSmoke": "passed"
+  },
+  "liveChecks": {
+    "url": "https://insightflow-preview-2vq7zoiw1-yashshah1211s-projects.vercel.app",
+    "workflowGroups": [
+      "exact authored source rows, 10 records / 9 patterns / 1 repeat, missing dates and five API pages",
+      "all five issues reference genuine authored evidence",
+      "no official verification claim, invented Adaption run, quality metric or balance",
+      "bad queries rejected, four writes and private reads denied, private paths and official batch unavailable",
+      "browser search, repeated search, category/sentiment filters, page-size control, last-page boundary and evidence drawer",
+      "issue screen renders actual synthetic quote and suspected-fraud disclosure",
+      "three objective switches match live API rankings; simulation explicitly hypothetical",
+      "real CSV download equals backend export; report print invocation, print CSS and PDF generation",
+      "six real screens at 320/375/768/1440px, truthful fixture labels, reachable navigation, no horizontal overflow",
+      "zero browser page errors; all inspected API/export responses below 4.5 MB"
+    ],
+    "responseMocks": false,
+    "pageErrors": [],
+    "maximumMeasuredApiResponseBytes": 8589.0,
+    "viewports": [
+      320,
+      375,
+      768,
+      1440
+    ],
+    "requiredSmoke": "passed"
+  },
+  "livePrivateValueScan": {
+    "url": "https://insightflow-preview-2vq7zoiw1-yashshah1211s-projects.vercel.app",
+    "checkedAt": "2026-10-11T18:23:20.9151534Z",
+    "htmlApiExportResponses": 10,
+    "staticAssets": 16,
+    "responsesChecked": 26,
+    "localPrivateValuesAbsent": true
+  },
+  "oidcLocalEntryRemoved": true,
+  "existingLocalCredentialsPreserved": true,
+  "localWritesDisabled": true,
+  "paidResourcesEnabled": false,
+  "adaptionOperations": 0,
+  "supabaseOperations": 0,
+  "frontendFilesChanged": 0,
+  "frozenContractsChanged": 0,
+  "limitations": [
+    "Private authentication/workspaces unavailable in preview",
+    "Initial synthetic-only deployment remains marked production",
+    "No provider run, balance or accuracy claimed",
+    "Existing engines range permits future automatic Node upgrades",
+    "Chromium tested; other browsers and native print dialog not tested"
+  ]
+}

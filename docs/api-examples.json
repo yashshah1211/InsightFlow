@@ -1,0 +1,931 @@
+{
+  "dashboard": {
+    "data": {
+      "summary": {
+        "recordCount": 10,
+        "uniqueTextCount": 9,
+        "repeatedRecordCount": 1,
+        "categoryCounts": {
+          "Product Feedback": 3,
+          "Customer Service": 2,
+          "Fraud and Scam": 3,
+          "Operational Issues": 2
+        },
+        "categoryPatternCounts": {
+          "Product Feedback": 3,
+          "Customer Service": 2,
+          "Fraud and Scam": 3,
+          "Operational Issues": 1
+        },
+        "sentimentCounts": {
+          "positive": 1,
+          "negative": 4,
+          "neutral": 2,
+          "mixed": 1,
+          "unknown": 1
+        },
+        "sentimentBasis": "patterns",
+        "annotationCoverage": {
+          "covered": 8,
+          "total": 9,
+          "ratio": 0.8888888888888888,
+          "basis": "patterns"
+        },
+        "timestampCoverage": {
+          "covered": 0,
+          "total": 10,
+          "ratio": 0,
+          "basis": "records"
+        },
+        "uniqueCustomers": {
+          "status": "unavailable",
+          "value": null,
+          "reason": "Source has no customer identifiers"
+        },
+        "timeTrends": {
+          "status": "unavailable",
+          "value": null,
+          "reason": "This batch has no source complaint dates"
+        }
+      },
+      "topIssues": [
+        {
+          "id": "suspected_fraud",
+          "title": "Suspected fraudulent activity",
+          "category": "Fraud and Scam",
+          "severity": "critical",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 91.11,
+            "objective": "safety",
+            "factors": {
+              "severity": 1,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.7,
+              "distinctPatternShare": 0.1,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "checkout_failure",
+          "title": "Checkout failure",
+          "category": "Operational Issues",
+          "severity": "high",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 73.61,
+            "objective": "safety",
+            "factors": {
+              "severity": 0.75,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.7,
+              "distinctPatternShare": 0.1,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "defective_product",
+          "title": "Defective product",
+          "category": "Product Feedback",
+          "severity": "high",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 73.61,
+            "objective": "safety",
+            "factors": {
+              "severity": 0.75,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.7,
+              "distinctPatternShare": 0.1,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "delayed_delivery",
+          "title": "Delayed delivery",
+          "category": "Operational Issues",
+          "severity": "medium",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 56.11,
+            "objective": "safety",
+            "factors": {
+              "severity": 0.5,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.7,
+              "distinctPatternShare": 0.1,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "unresolved_service",
+          "title": "Unresolved customer service",
+          "category": "Customer Service",
+          "severity": "medium",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 56.11,
+            "objective": "safety",
+            "factors": {
+              "severity": 0.5,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.7,
+              "distinctPatternShare": 0.1,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        }
+      ]
+    },
+    "meta": {
+      "contractVersion": "1.0.0",
+      "mode": "fixture",
+      "batchId": "fixture-batch-v1",
+      "dataSourceStatus": "ready",
+      "analysisStatus": "partial",
+      "provenance": {
+        "source": "fixture",
+        "label": "10 authored development samples; not the official dataset",
+        "methodologyVersion": "heuristic-v2"
+      },
+      "limitations": [
+        "Fixture data only; official CSV assertions pending.",
+        "No customer IDs or complaint dates; import time is not event time.",
+        "Heuristic analysis is unreviewed and incomplete; no calibrated confidence.",
+        "Adaption not configured; no jobs submitted or credits spent."
+      ]
+    }
+  },
+  "feedbackRecords": {
+    "data": {
+      "view": "records",
+      "items": [
+        {
+          "kind": "record",
+          "id": "fixture-record-1",
+          "batchId": "fixture-batch-v1",
+          "rowNumber": 2,
+          "rawText": "Checkout crashed twice, please fix it.",
+          "category": "Operational Issues",
+          "normalizedHash": "a79cf42e10f7018010989307e219fc33fc7714b6580fcad54272a6997a15741a",
+          "source": "fixture",
+          "importedAt": "2026-01-01T00:00:00Z",
+          "observedAt": null,
+          "annotation": {
+            "sentiment": "negative",
+            "severity": "high",
+            "issueTypes": [
+              "checkout_failure"
+            ],
+            "aspects": [
+              {
+                "topic": "checkout_failure",
+                "sentiment": "negative",
+                "evidenceQuote": "Checkout crashed twice, please fix it"
+              }
+            ],
+            "explanation": "Narrow clause-based rules; unsupported language remains unknown. Negated allegations are excluded from issue evidence.",
+            "evidenceQuote": "Checkout crashed twice, please fix it",
+            "analyzedBy": "heuristic",
+            "pipelineVersion": "heuristic-v2",
+            "reviewStatus": "unreviewed",
+            "confidence": null
+          }
+        }
+      ]
+    },
+    "meta": {
+      "contractVersion": "1.0.0",
+      "mode": "fixture",
+      "batchId": "fixture-batch-v1",
+      "dataSourceStatus": "ready",
+      "analysisStatus": "partial",
+      "provenance": {
+        "source": "fixture",
+        "label": "10 authored development samples; not the official dataset",
+        "methodologyVersion": "heuristic-v2"
+      },
+      "limitations": [
+        "Fixture data only; official CSV assertions pending.",
+        "No customer IDs or complaint dates; import time is not event time.",
+        "Heuristic analysis is unreviewed and incomplete; no calibrated confidence.",
+        "Adaption not configured; no jobs submitted or credits spent."
+      ],
+      "total": 10,
+      "page": 1,
+      "pageSize": 1,
+      "totalPages": 10
+    }
+  },
+  "feedbackPatterns": {
+    "data": {
+      "view": "patterns",
+      "items": [
+        {
+          "kind": "pattern",
+          "batchId": "fixture-batch-v1",
+          "normalizedHash": "a79cf42e10f7018010989307e219fc33fc7714b6580fcad54272a6997a15741a",
+          "normalizedText": "checkout crashed twice, please fix it.",
+          "exampleOriginalText": "Checkout crashed twice, please fix it.",
+          "occurrenceCount": 2,
+          "categoryCounts": {
+            "Product Feedback": 0,
+            "Customer Service": 0,
+            "Fraud and Scam": 0,
+            "Operational Issues": 2
+          },
+          "annotation": {
+            "sentiment": "negative",
+            "severity": "high",
+            "issueTypes": [
+              "checkout_failure"
+            ],
+            "aspects": [
+              {
+                "topic": "checkout_failure",
+                "sentiment": "negative",
+                "evidenceQuote": "Checkout crashed twice, please fix it"
+              }
+            ],
+            "explanation": "Narrow clause-based rules; unsupported language remains unknown. Negated allegations are excluded from issue evidence.",
+            "evidenceQuote": "Checkout crashed twice, please fix it",
+            "analyzedBy": "heuristic",
+            "pipelineVersion": "heuristic-v2",
+            "reviewStatus": "unreviewed",
+            "confidence": null
+          }
+        }
+      ]
+    },
+    "meta": {
+      "contractVersion": "1.0.0",
+      "mode": "fixture",
+      "batchId": "fixture-batch-v1",
+      "dataSourceStatus": "ready",
+      "analysisStatus": "partial",
+      "provenance": {
+        "source": "fixture",
+        "label": "10 authored development samples; not the official dataset",
+        "methodologyVersion": "heuristic-v2"
+      },
+      "limitations": [
+        "Fixture data only; official CSV assertions pending.",
+        "No customer IDs or complaint dates; import time is not event time.",
+        "Heuristic analysis is unreviewed and incomplete; no calibrated confidence.",
+        "Adaption not configured; no jobs submitted or credits spent."
+      ],
+      "total": 9,
+      "page": 1,
+      "pageSize": 1,
+      "totalPages": 9
+    }
+  },
+  "issues": {
+    "data": {
+      "items": [
+        {
+          "id": "suspected_fraud",
+          "title": "Suspected fraudulent activity",
+          "category": "Fraud and Scam",
+          "severity": "critical",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 91.11,
+            "objective": "safety",
+            "factors": {
+              "severity": 1,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.7,
+              "distinctPatternShare": 0.1,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "checkout_failure",
+          "title": "Checkout failure",
+          "category": "Operational Issues",
+          "severity": "high",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 73.61,
+            "objective": "safety",
+            "factors": {
+              "severity": 0.75,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.7,
+              "distinctPatternShare": 0.1,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "defective_product",
+          "title": "Defective product",
+          "category": "Product Feedback",
+          "severity": "high",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 73.61,
+            "objective": "safety",
+            "factors": {
+              "severity": 0.75,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.7,
+              "distinctPatternShare": 0.1,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "delayed_delivery",
+          "title": "Delayed delivery",
+          "category": "Operational Issues",
+          "severity": "medium",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 56.11,
+            "objective": "safety",
+            "factors": {
+              "severity": 0.5,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.7,
+              "distinctPatternShare": 0.1,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "unresolved_service",
+          "title": "Unresolved customer service",
+          "category": "Customer Service",
+          "severity": "medium",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 56.11,
+            "objective": "safety",
+            "factors": {
+              "severity": 0.5,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.7,
+              "distinctPatternShare": 0.1,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        }
+      ]
+    },
+    "meta": {
+      "contractVersion": "1.0.0",
+      "mode": "fixture",
+      "batchId": "fixture-batch-v1",
+      "dataSourceStatus": "ready",
+      "analysisStatus": "partial",
+      "provenance": {
+        "source": "fixture",
+        "label": "10 authored development samples; not the official dataset",
+        "methodologyVersion": "heuristic-v2"
+      },
+      "limitations": [
+        "Fixture data only; official CSV assertions pending.",
+        "No customer IDs or complaint dates; import time is not event time.",
+        "Heuristic analysis is unreviewed and incomplete; no calibrated confidence.",
+        "Adaption not configured; no jobs submitted or credits spent."
+      ]
+    }
+  },
+  "issueDetail": {
+    "data": {
+      "issue": {
+        "id": "suspected_fraud",
+        "title": "Suspected fraudulent activity",
+        "category": "Fraud and Scam",
+        "severity": "critical",
+        "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+        "status": "open",
+        "notes": "",
+        "evidenceCount": 1,
+        "createdAt": "2026-01-01T00:00:00Z",
+        "updatedAt": "2026-01-01T00:00:00Z",
+        "priority": {
+          "score": 91.11,
+          "objective": "safety",
+          "factors": {
+            "severity": 1,
+            "distinctPatternShare": 0.1111111111111111,
+            "negativeShare": 1,
+            "evidenceCoverage": 1
+          },
+          "weights": {
+            "severity": 0.7,
+            "distinctPatternShare": 0.1,
+            "negativeShare": 0.1,
+            "evidenceCoverage": 0.1
+          },
+          "methodologyVersion": "priority-v1",
+          "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+        }
+      },
+      "evidence": [
+        {
+          "role": "supporting",
+          "pattern": {
+            "kind": "pattern",
+            "batchId": "fixture-batch-v1",
+            "normalizedHash": "b7f96544e66d74df671a6a0013f7455dae52be07be0180ba9e38ca0c68a2bf53",
+            "normalizedText": "i was a victim of fraud.",
+            "exampleOriginalText": "I was a victim of fraud.",
+            "occurrenceCount": 1,
+            "categoryCounts": {
+              "Product Feedback": 0,
+              "Customer Service": 0,
+              "Fraud and Scam": 1,
+              "Operational Issues": 0
+            },
+            "annotation": {
+              "sentiment": "negative",
+              "severity": "critical",
+              "issueTypes": [
+                "suspected_fraud"
+              ],
+              "aspects": [
+                {
+                  "topic": "suspected_fraud",
+                  "sentiment": "negative",
+                  "evidenceQuote": "I was a victim of fraud"
+                }
+              ],
+              "explanation": "Narrow clause-based rules; unsupported language remains unknown. Negated allegations are excluded from issue evidence.",
+              "evidenceQuote": "I was a victim of fraud",
+              "analyzedBy": "heuristic",
+              "pipelineVersion": "heuristic-v2",
+              "reviewStatus": "unreviewed",
+              "confidence": null
+            }
+          },
+          "samples": [
+            {
+              "kind": "record",
+              "id": "fixture-record-4",
+              "batchId": "fixture-batch-v1",
+              "rowNumber": 5,
+              "rawText": "I was a victim of fraud.",
+              "category": "Fraud and Scam",
+              "normalizedHash": "b7f96544e66d74df671a6a0013f7455dae52be07be0180ba9e38ca0c68a2bf53",
+              "source": "fixture",
+              "importedAt": "2026-01-01T00:00:00Z",
+              "observedAt": null,
+              "annotation": {
+                "sentiment": "negative",
+                "severity": "critical",
+                "issueTypes": [
+                  "suspected_fraud"
+                ],
+                "aspects": [
+                  {
+                    "topic": "suspected_fraud",
+                    "sentiment": "negative",
+                    "evidenceQuote": "I was a victim of fraud"
+                  }
+                ],
+                "explanation": "Narrow clause-based rules; unsupported language remains unknown. Negated allegations are excluded from issue evidence.",
+                "evidenceQuote": "I was a victim of fraud",
+                "analyzedBy": "heuristic",
+                "pipelineVersion": "heuristic-v2",
+                "reviewStatus": "unreviewed",
+                "confidence": null
+              }
+            }
+          ]
+        }
+      ],
+      "recommendations": [
+        {
+          "description": "Review the cited transaction allegation and payment controls; verify before escalation.",
+          "rationale": "Deterministic template attached to the supported issue topic; does not promise an outcome.",
+          "source": "template"
+        }
+      ],
+      "actions": []
+    },
+    "meta": {
+      "contractVersion": "1.0.0",
+      "mode": "fixture",
+      "batchId": "fixture-batch-v1",
+      "dataSourceStatus": "ready",
+      "analysisStatus": "partial",
+      "provenance": {
+        "source": "fixture",
+        "label": "10 authored development samples; not the official dataset",
+        "methodologyVersion": "heuristic-v2"
+      },
+      "limitations": [
+        "Fixture data only; official CSV assertions pending.",
+        "No customer IDs or complaint dates; import time is not event time.",
+        "Heuristic analysis is unreviewed and incomplete; no calibrated confidence.",
+        "Adaption not configured; no jobs submitted or credits spent."
+      ]
+    }
+  },
+  "decisions": {
+    "data": {
+      "objective": "operations",
+      "rankedIssues": [
+        {
+          "id": "suspected_fraud",
+          "title": "Suspected fraudulent activity",
+          "category": "Fraud and Scam",
+          "severity": "critical",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 77.78,
+            "objective": "operations",
+            "factors": {
+              "severity": 1,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.55,
+              "distinctPatternShare": 0.25,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "checkout_failure",
+          "title": "Checkout failure",
+          "category": "Operational Issues",
+          "severity": "high",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 64.03,
+            "objective": "operations",
+            "factors": {
+              "severity": 0.75,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.55,
+              "distinctPatternShare": 0.25,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "defective_product",
+          "title": "Defective product",
+          "category": "Product Feedback",
+          "severity": "high",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 64.03,
+            "objective": "operations",
+            "factors": {
+              "severity": 0.75,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.55,
+              "distinctPatternShare": 0.25,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "delayed_delivery",
+          "title": "Delayed delivery",
+          "category": "Operational Issues",
+          "severity": "medium",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 50.28,
+            "objective": "operations",
+            "factors": {
+              "severity": 0.5,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.55,
+              "distinctPatternShare": 0.25,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        },
+        {
+          "id": "unresolved_service",
+          "title": "Unresolved customer service",
+          "category": "Customer Service",
+          "severity": "medium",
+          "summary": "Rule-based finding supported by 1 distinct text pattern(s); verify against original evidence.",
+          "status": "open",
+          "notes": "",
+          "evidenceCount": 1,
+          "createdAt": "2026-01-01T00:00:00Z",
+          "updatedAt": "2026-01-01T00:00:00Z",
+          "priority": {
+            "score": 50.28,
+            "objective": "operations",
+            "factors": {
+              "severity": 0.5,
+              "distinctPatternShare": 0.1111111111111111,
+              "negativeShare": 1,
+              "evidenceCoverage": 1
+            },
+            "weights": {
+              "severity": 0.55,
+              "distinctPatternShare": 0.25,
+              "negativeShare": 0.1,
+              "evidenceCoverage": 0.1
+            },
+            "methodologyVersion": "priority-v1",
+            "rationale": "Weighted severity, distinct-pattern share, negative-or-mixed share and evidence coverage. Repetition has zero direct weight; severity dominates."
+          }
+        }
+      ],
+      "methodologyVersion": "priority-v1"
+    },
+    "meta": {
+      "contractVersion": "1.0.0",
+      "mode": "fixture",
+      "batchId": "fixture-batch-v1",
+      "dataSourceStatus": "ready",
+      "analysisStatus": "partial",
+      "provenance": {
+        "source": "fixture",
+        "label": "10 authored development samples; not the official dataset",
+        "methodologyVersion": "heuristic-v2"
+      },
+      "limitations": [
+        "Fixture data only; official CSV assertions pending.",
+        "No customer IDs or complaint dates; import time is not event time.",
+        "Heuristic analysis is unreviewed and incomplete; no calibrated confidence.",
+        "Adaption not configured; no jobs submitted or credits spent."
+      ]
+    }
+  },
+  "dataLab": {
+    "data": {
+      "summary": {
+        "recordCount": 10,
+        "uniqueTextCount": 9,
+        "repeatedRecordCount": 1,
+        "categoryCounts": {
+          "Product Feedback": 3,
+          "Customer Service": 2,
+          "Fraud and Scam": 3,
+          "Operational Issues": 2
+        },
+        "categoryPatternCounts": {
+          "Product Feedback": 3,
+          "Customer Service": 2,
+          "Fraud and Scam": 3,
+          "Operational Issues": 1
+        },
+        "sentimentCounts": {
+          "positive": 1,
+          "negative": 4,
+          "neutral": 2,
+          "mixed": 1,
+          "unknown": 1
+        },
+        "sentimentBasis": "patterns",
+        "annotationCoverage": {
+          "covered": 8,
+          "total": 9,
+          "ratio": 0.8888888888888888,
+          "basis": "patterns"
+        },
+        "timestampCoverage": {
+          "covered": 0,
+          "total": 10,
+          "ratio": 0,
+          "basis": "records"
+        },
+        "uniqueCustomers": {
+          "status": "unavailable",
+          "value": null,
+          "reason": "Source has no customer identifiers"
+        },
+        "timeTrends": {
+          "status": "unavailable",
+          "value": null,
+          "reason": "This batch has no source complaint dates"
+        }
+      },
+      "imports": [
+        {
+          "batchId": "fixture-batch-v1",
+          "filename": "feedback.csv",
+          "source": "fixture",
+          "status": "ready",
+          "createdAt": "2026-01-01T00:00:00Z"
+        }
+      ],
+      "adaption": {
+        "status": "not_configured",
+        "runs": [],
+        "evaluation": {
+          "status": "unavailable",
+          "value": null,
+          "reason": "No Adaption run or evaluation has been performed"
+        }
+      },
+      "top20RecordCount": 10,
+      "officialDatasetAssertions": "pending"
+    },
+    "meta": {
+      "contractVersion": "1.0.0",
+      "mode": "fixture",
+      "batchId": "fixture-batch-v1",
+      "dataSourceStatus": "ready",
+      "analysisStatus": "partial",
+      "provenance": {
+        "source": "fixture",
+        "label": "10 authored development samples; not the official dataset",
+        "methodologyVersion": "heuristic-v2"
+      },
+      "limitations": [
+        "Fixture data only; official CSV assertions pending.",
+        "No customer IDs or complaint dates; import time is not event time.",
+        "Heuristic analysis is unreviewed and incomplete; no calibrated confidence.",
+        "Adaption not configured; no jobs submitted or credits spent."
+      ]
+    }
+  },
+  "writeError": {
+    "error": {
+      "code": "UNAUTHENTICATED",
+      "message": "Authenticated persistence is not configured or enabled"
+    }
+  },
+  "invalidQueryError": {
+    "error": {
+      "code": "INVALID_QUERY",
+      "message": "Invalid query parameters"
+    }
+  }
+}

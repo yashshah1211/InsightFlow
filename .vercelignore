@@ -1,0 +1,15 @@
+# Synthetic preview allowlist. Official delivery requires a separately reviewed package.
+/*
+!src
+!src/**
+!package.json
+!package-lock.json
+!next.config.ts
+!next-env.d.ts
+!tsconfig.json
+!postcss.config.mjs
+!vercel.json
+!scripts
+scripts/**
+!scripts/build-readiness.ts
+!scripts/start-standalone.mjs

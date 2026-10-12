@@ -1,0 +1,30 @@
+{
+  "evidenceType": "sanitized historical read-only connection proof",
+  "observedAt": "2026-10-11T17:28:14.298655+00:00",
+  "sdkVersion": "0.14.0",
+  "connection": {
+    "method": "GET",
+    "route": "/api/v1/datasets",
+    "httpStatus": 200,
+    "authenticated": true,
+    "sdkResponseParsed": true
+  },
+  "offlinePilot": { "sourceKind": "synthetic_original", "rows": 25, "independentlyApproved": 25 },
+  "datasetCreated": false,
+  "uploadPerformed": false,
+  "preprocessingStarted": false,
+  "estimateRequested": false,
+  "adaptationStarted": false,
+  "trainingStarted": false,
+  "datasetId": null,
+  "runId": null,
+  "quotedCredits": null,
+  "currentAvailableCredits": null,
+  "actualCreditUsage": null,
+  "validatedAdaptedOutput": false,
+  "independentlyMeasuredAccuracy": null,
+  "billingSafetyGatePassed": false,
+  "newProviderCallsDuringPackaging": 0,
+  "privateSourceEvidence": "ignored phase6c-preflight.json and phase6c-continuation-evidence.json; not distributed",
+  "limitation": "Connectivity is verified; meaningful provider processing and validated results are not complete."
+}

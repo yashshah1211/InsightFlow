@@ -1,0 +1,147 @@
+{
+  "phase": "6B offline preparation",
+  "observedAt": "2026-10-11T16:16:16.497013+00:00",
+  "baseCommit": "633b077b7270309cedb3e6859013d876aaf7842a",
+  "providerOperations": {
+    "authenticatedCalls": 0,
+    "uploads": 0,
+    "estimates": 0,
+    "adaptations": 0,
+    "downloads": 0,
+    "attemptLedgers": 0,
+    "datasetId": null,
+    "runId": null,
+    "estimatedCredits": null,
+    "availableCredits": null,
+    "actualCredits": null,
+    "reason": "User requires exact-input review; official transfer permission is unconfirmed. No provider call authorized."
+  },
+  "credential": {
+    "present": true,
+    "source": "local_secret_file",
+    "fileIgnored": true,
+    "validity": "not_tested",
+    "exposed": false
+  },
+  "sdk": {
+    "version": "0.14.0",
+    "location": "ignored .venv",
+    "offlineInspectedMethods": [
+      "upload_file",
+      "adapt",
+      "get_status",
+      "download",
+      "get_evaluation"
+    ],
+    "universalPromptSupported": true,
+    "estimateOperation": "datasets.adapt(estimate=True)",
+    "balanceFieldAvailableInAdaptResponse": false,
+    "hardSpendCapInspected": false
+  },
+  "applicationWritesEnabled": false,
+  "remoteDatabaseChanges": false,
+  "frontendChanges": false,
+  "frozenContractChanges": false,
+  "originalPilotRetained": {
+    "pilotSha256": "bf9610df9f13b192ab268bcd1db7dac7c85fabe345ac25a32e06cd8846fc5a3f",
+    "configCanonicalSha256": "92c79635bcdeaa080e54d1627d6d822c3a929cbac4233dddc660466a76142c7e",
+    "files": {
+      "pilot.csv": "bf9610df9f13b192ab268bcd1db7dac7c85fabe345ac25a32e06cd8846fc5a3f",
+      "human-review.csv": "21035f349c7253cd34f94165cafa42127d4cfc9f85ed6b3adde564ccc9c2c856",
+      "config.json": "303ea3223f6b648b5d478fab41345cec05fbed7c6470672389e8f2cdd8d59c20",
+      "manifest.json": "38f4a0ae24b7423417faefc3d0ab51878054dfad083fa2c7c9e0b2e49f402dfb"
+    }
+  },
+  "pilots": [
+    {
+      "status": "offline_validated",
+      "sourceKind": "official_csv",
+      "pilotRows": 25,
+      "pilotSha256": "637552a2135b1f84c26da6fdbf05540a2a8264f713362c9d1e1cc4d21e999e3e",
+      "configSha256": "604f3b25ab21ad7c3d74b1e572c1fe95a1f4dd004e547a51be7819ef279d738b",
+      "sourceSha256": "82b09450e0e5144c4a21cb33a9556dab6afd7618228496e7f4c321f687250c41",
+      "verifiedGoldRows": 0,
+      "accuracy": null,
+      "networkCalls": 0,
+      "piiFlaggedRows": 0,
+      "folder": "artifacts/adaption/phase6b-official",
+      "manifestSha256": "5821597f5d7b67f96d52f184f1c5ae74b271443266b9d9bf3bdfbe9753d1d6a8",
+      "uploadFields": [
+        "review",
+        "normalized_hash"
+      ],
+      "transferState": "unconfirmed_official_permission",
+      "approvalStatus": "unapproved",
+      "datasetId": null,
+      "runId": null,
+      "estimatedCredits": null,
+      "actualCredits": null
+    },
+    {
+      "status": "offline_validated",
+      "sourceKind": "synthetic_original",
+      "pilotRows": 25,
+      "pilotSha256": "809be152bac490a6b230152d53d0e71c21478469f313e96b5523b3583c2dd2f2",
+      "configSha256": "604f3b25ab21ad7c3d74b1e572c1fe95a1f4dd004e547a51be7819ef279d738b",
+      "sourceSha256": "6fb043f679dcd5053504cccf81e2da32acdf75e23cd6cb400dff4a7df2aa68a4",
+      "verifiedGoldRows": 0,
+      "accuracy": null,
+      "networkCalls": 0,
+      "piiFlaggedRows": 0,
+      "folder": "artifacts/adaption/phase6b-synthetic",
+      "manifestSha256": "cc1bc103f5351b10af878ce1eb52ae6f6d7a6405fe3462adb0fac8a8cb587ff4",
+      "uploadFields": [
+        "review",
+        "normalized_hash"
+      ],
+      "transferState": "original_authored_synthetic_pending_user_review",
+      "approvalStatus": "unapproved",
+      "datasetId": null,
+      "runId": null,
+      "estimatedCredits": null,
+      "actualCredits": null
+    }
+  ],
+  "syntheticNovelty": {
+    "referenceSourceSha256": "82b09450e0e5144c4a21cb33a9556dab6afd7618228496e7f4c321f687250c41",
+    "referencePatterns": 320,
+    "exactMatches": 0,
+    "sharedSixWordPhrases": 0,
+    "flaggedRows": 0,
+    "threshold": 0.65,
+    "maximumSequenceSimilarity": 0.476684,
+    "humanOriginalityApproval": "pending",
+    "notConfidenceOrAccuracy": true
+  },
+  "checks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "typescriptTests": {
+      "passed": 93,
+      "files": 16
+    },
+    "pythonTests": {
+      "passed": 23
+    },
+    "build": "passed",
+    "smoke": "passed: six API contracts, CSV provenance, unsigned upload denial, six-screen/mobile Chromium navigation, zero page errors",
+    "security": "passed",
+    "offlineBundles": "passed: exact source/input/config binding, blank gold, null accuracy"
+  },
+  "limitations": [
+    "No genuine provider evidence exists yet.",
+    "Installed SDK compatibility does not verify remote config acceptance.",
+    "PII and novelty screens require human review.",
+    "Gold must be independently human approved; all 50 reviews remain unreviewed.",
+    "The original pilot is stratified and synthetic examples are authored, neither is a held-out benchmark.",
+    "Provider row count alone does not prove source-byte correspondence; provider preview verification is pending upload authorization.",
+    "Local quote guard is not a hard provider billing cap."
+  ],
+  "nextActions": [
+    "Human review both source-only sheets and fill independent gold; resolve per-row decisions.",
+    "Choose one exact payload; confirm PII/originality and transfer terms. Official input remains blocked without organizer permission.",
+    "Authorize one upload/preprocessing and estimate only after reviewing any ingestion/estimate charges.",
+    "Verify actual provider input, obtain real quote and observe account balance privately.",
+    "Separately approve actual quote before one adaptation; inspect/map/validate/download and independently approve completions before curation."
+  ]
+}

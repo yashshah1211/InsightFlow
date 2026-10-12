@@ -1,0 +1,314 @@
+{
+  "verifiedAt": "2026-10-12T09:53:51.554Z",
+  "sourceBaseCommit": "5621807f166900ee37451d242df57cd8fddc0abc",
+  "recoveredSourceChanges": [
+    "src/lib/db/deployment-profile.ts",
+    "tests/deployment-profile.test.ts",
+    "scripts/deploy-authenticated-preview.mjs",
+    "scripts/hosted-preview-smoke.mjs"
+  ],
+  "deployment": {
+    "project": "insightflow-preview",
+    "projectId": "prj_J3kD79zIEtR84ytA1oLqndYAUm4D",
+    "plan": "Hobby",
+    "id": "dpl_CXZsBKNG7BHz9c1PaKLk3fGVWaxt",
+    "url": "https://insightflow-preview-7nwsx2nwk-yashshah1211s-projects.vercel.app",
+    "origin": "https://insightflow-preview-demo.vercel.app",
+    "target": "preview",
+    "remoteTarget": null,
+    "readyState": "READY",
+    "originalFallback": "https://insightflow-preview-2vq7zoiw1-yashshah1211s-projects.vercel.app",
+    "authenticatedReadOnlyFallback": "https://insightflow-preview-ptemhp6x1-yashshah1211s-projects.vercel.app",
+    "productionUnchanged": true
+  },
+  "configuration": {
+    "environmentNames": [
+      "INSIGHTFLOW_DATA_MODE",
+      "INSIGHTFLOW_WRITES_ENABLED",
+      "INSIGHTFLOW_DEPLOYMENT_PROFILE",
+      "APP_ORIGIN",
+      "SUPABASE_URL",
+      "SUPABASE_PUBLISHABLE_KEY"
+    ],
+    "profile": "authenticated-preview",
+    "publicMode": "fixture",
+    "authenticatedPreviewWrites": true,
+    "anonymousWrites": false,
+    "localWrites": false,
+    "serverOnlyPublishableKey": true,
+    "developmentProject": "dbacbcbglbqmqwxscesu"
+  },
+  "publicData": {
+    "records": 10,
+    "patterns": 9,
+    "repeats": 1,
+    "fixtureSha256": "47227340f1060a82d7d39713a6b30fee391d0a84f73b4636795aee7831e037af",
+    "sourceManifestSha256": "f88fd4f0b1b860a0fa67fd6dd77dd0bbe79c8107e2c5728d1114697a0d24032c",
+    "sourceFiles": 80,
+    "sourceBytes": 480645,
+    "buildTraces": 49,
+    "officialOrGoldDataTransferred": false
+  },
+  "localChecks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "npmCheck": "passed",
+    "typescript": {
+      "files": 17,
+      "tests": 97,
+      "status": "passed"
+    },
+    "python": {
+      "tests": 23,
+      "status": "passed",
+      "providerCalls": 0
+    },
+    "packaging": "passed: relocated local official standalone only",
+    "smoke": "passed",
+    "integrationSmoke": "passed with labeled fault injections",
+    "authSmoke": "17 suites passed with labeled auth/private doubles",
+    "security": "passed",
+    "dependencyAuditVulnerabilities": 0
+  },
+  "remoteChecks": {
+    "auth": {
+      "status": "passed",
+      "checks": [
+        {
+          "name": "exact healthy development project, nine RLS tables, five RPCs and denied direct writes",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:04:50.677Z"
+        },
+        {
+          "name": "anonymous public synthetic demo remains available and private access/writes denied",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:04:53.686Z"
+        },
+        {
+          "name": "A real HTTPS browser login, Secure HttpOnly Lax cookies, refresh persistence and owner discovery",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:05:03.681Z"
+        },
+        {
+          "name": "B real HTTPS browser login, Secure HttpOnly Lax cookies, refresh persistence and owner discovery",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:05:15.424Z"
+        },
+        {
+          "name": "A read-only owner selection, foreign reads hidden and write gate denies authenticated request",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:05:26.096Z"
+        },
+        {
+          "name": "B read-only owner selection, foreign reads hidden and write gate denies authenticated request",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:05:37.161Z"
+        },
+        {
+          "name": "anonymous database/RPC denials, invalid token and direct client table writes denied",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:05:42.783Z"
+        },
+        {
+          "name": "A sign-out clears secure cookies, private access and selected batch; public demo restored",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:05:45.870Z"
+        },
+        {
+          "name": "B sign-out clears secure cookies, private access and selected batch; public demo restored",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:05:49.074Z"
+        },
+        {
+          "name": "same browser switches A to B without stale A batches and reauthenticates persistent private data",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:06:01.368Z"
+        },
+        {
+          "name": "remote catalogs and existing Auth identities unchanged; local write flag remains false",
+          "result": "passed",
+          "checkedAt": "2026-10-12T04:06:02.538Z"
+        }
+      ]
+    },
+    "privateAcceptance": {
+      "status": "passed",
+      "checks": [
+        {
+          "name": "exact healthy development project, nine RLS tables, five RPCs and denied direct writes",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:47:43.124Z"
+        },
+        {
+          "name": "anonymous public synthetic demo remains available and private access/writes denied",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:47:48.655Z"
+        },
+        {
+          "name": "A real HTTPS browser login, Secure HttpOnly Lax cookies, refresh persistence and owner discovery",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:48:04.730Z"
+        },
+        {
+          "name": "B real HTTPS browser login, Secure HttpOnly Lax cookies, refresh persistence and owner discovery",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:48:15.206Z"
+        },
+        {
+          "name": "A real browser CSV import creates private four-row/three-pattern batch",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:48:16.074Z"
+        },
+        {
+          "name": "A six private API screens, provenance, all decision objectives and CSV export",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:48:26.147Z"
+        },
+        {
+          "name": "A real browser issue update/action persist across refresh and in Supabase",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:48:29.834Z"
+        },
+        {
+          "name": "B real browser CSV import creates private four-row/three-pattern batch",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:48:31.097Z"
+        },
+        {
+          "name": "B six private API screens, provenance, all decision objectives and CSV export",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:48:43.250Z"
+        },
+        {
+          "name": "B real browser issue update/action persist across refresh and in Supabase",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:48:47.239Z"
+        },
+        {
+          "name": "A real browser manual feedback persists with unknown complaint date in its own private batch",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:48:47.644Z"
+        },
+        {
+          "name": "A owner discovery preserves earlier batches and cross-user reads/exports/writes denied",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:49:02.491Z"
+        },
+        {
+          "name": "A all six private screens at mobile and desktop without overflow or page errors",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:49:21.594Z"
+        },
+        {
+          "name": "B owner discovery preserves earlier batches and cross-user reads/exports/writes denied",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:49:40.005Z"
+        },
+        {
+          "name": "B all six private screens at mobile and desktop without overflow or page errors",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:49:57.069Z"
+        },
+        {
+          "name": "malformed upload, cross-origin mutation and public issue mutation rejected without data changes",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:50:04.952Z"
+        },
+        {
+          "name": "anonymous database/RPC denials, invalid token and direct client table writes denied",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:50:11.724Z"
+        },
+        {
+          "name": "A sign-out clears secure cookies, private access and selected batch; public demo restored",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:50:15.409Z"
+        },
+        {
+          "name": "B sign-out clears secure cookies, private access and selected batch; public demo restored",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:50:18.925Z"
+        },
+        {
+          "name": "same browser switches A to B without stale A batches and reauthenticates persistent private data",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:50:29.956Z"
+        },
+        {
+          "name": "remote catalogs and existing Auth identities unchanged; local write flag remains false",
+          "result": "passed",
+          "checkedAt": "2026-10-12T09:50:32.820Z"
+        }
+      ],
+      "createdBatches": 3,
+      "records": 9,
+      "patterns": 7,
+      "repeats": 2,
+      "savedActions": 2,
+      "persistentIssueUpdates": 2,
+      "earlierDataPreserved": true
+    },
+    "publicWorkflowChecks": [
+      "exact authored source rows, 10 records / 9 patterns / 1 repeat, missing dates and five API pages",
+      "all five issues reference genuine authored evidence",
+      "no official verification claim, invented Adaption run, quality metric or balance",
+      "bad queries rejected, four writes and private reads denied, private paths and official batch unavailable",
+      "browser search, repeated search, category/sentiment filters, page-size control, last-page boundary and evidence drawer",
+      "issue screen renders actual synthetic quote and suspected-fraud disclosure",
+      "three objective switches match live API rankings; simulation explicitly hypothetical",
+      "real CSV download equals backend export; report print invocation, print CSS and PDF generation",
+      "six real screens at 320/375/768/1440px, truthful fixture labels, reachable navigation, no horizontal overflow",
+      "zero browser page errors; all inspected API/export responses below 4.5 MB"
+    ],
+    "responseMocks": false,
+    "publicViewportWidths": [
+      320,
+      375,
+      768,
+      1440
+    ],
+    "privateViewportWidths": [
+      320,
+      375,
+      1440
+    ],
+    "publicSecretScan": {
+      "origin": "https://insightflow-preview-demo.vercel.app",
+      "checkedAt": "2026-10-12T04:09:36.358Z",
+      "publicResponses": 12,
+      "staticAssets": 16,
+      "knownPrivateValuesAbsent": true,
+      "cookiesOrCredentialsSent": false
+    },
+    "buildEvents": {
+      "deploymentId": "dpl_CXZsBKNG7BHz9c1PaKLk3fGVWaxt",
+      "checkedAt": "2026-10-12T04:14:56.032Z",
+      "events": 88,
+      "errors": 0,
+      "compiled": true
+    }
+  },
+  "security": {
+    "rlsTables": 9,
+    "selectPolicies": 9,
+    "protectedRpcs": 5,
+    "catalogsUnchanged": true,
+    "authUserCount": 2,
+    "authIdentitiesUnchanged": true,
+    "anonymousRpcExecuteDenied": true,
+    "directTableWritePrivilegesDenied": true,
+    "reciprocalOwnerIsolationVerified": true
+  },
+  "restrictions": [
+    "Natural JWT expiration and forced browser refresh-token rotation were not waited for. Refresh persistence and sign-out were tested. Previously issued bearer JWTs can remain valid until expiry; RLS remains owner-scoped. No password reset, signup or PKCE email link flow was tested. Password login does not use redirect URL allowlists.",
+    "No signup/recovery/PKCE flow tested; the exact callback URL is not in the development redirect allowlist. Password login required no allowlist modification.",
+    "Private RPCs remain available to authorized owners independent of the application write flag.",
+    "Official transfer, gold publication, Adaption execution, production promotion and paid infrastructure remain unauthorized."
+  ],
+  "attemptEvidence": {
+    "retainedLocally": true,
+    "writeAttemptCount": 4,
+    "duplicatedImportsOrActions": false,
+    "privateEvidenceDirectory": "artifacts/live-preview"
+  }
+}

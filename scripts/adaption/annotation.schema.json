@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "sentiment": {
+      "type": "string",
+      "enum": [
+        "positive",
+        "negative",
+        "neutral",
+        "mixed",
+        "unknown"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical",
+        "unknown"
+      ]
+    },
+    "issueTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "aspects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string"
+          },
+          "sentiment": {
+            "type": "string",
+            "enum": [
+              "positive",
+              "negative",
+              "neutral",
+              "mixed",
+              "unknown"
+            ]
+          },
+          "evidenceQuote": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "topic",
+          "sentiment",
+          "evidenceQuote"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "evidenceQuote": {
+      "type": "string"
+    },
+    "analyzedBy": {
+      "type": "string",
+      "enum": [
+        "heuristic",
+        "manual",
+        "adaption",
+        "other"
+      ]
+    },
+    "pipelineVersion": {
+      "type": "string"
+    },
+    "reviewStatus": {
+      "type": "string",
+      "enum": [
+        "unreviewed",
+        "verified",
+        "rejected"
+      ]
+    },
+    "confidence": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "sentiment",
+    "severity",
+    "issueTypes",
+    "aspects",
+    "explanation",
+    "evidenceQuote",
+    "analyzedBy",
+    "pipelineVersion",
+    "reviewStatus",
+    "confidence"
+  ],
+  "additionalProperties": false
+}

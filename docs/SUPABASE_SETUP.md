@@ -1,0 +1,15 @@
+# Secure Supabase setup — remote deployment pending
+
+Current Phase 4 operator procedure: [SUPABASE_PRODUCTION_GUIDE.md](SUPABASE_PRODUCTION_GUIDE.md); new server auth routes/UI handoff: [AUTH_UI_HANDOFF.md](AUTH_UI_HANDOFF.md). Server cookie plumbing is now implemented, while UI and live remote checks remain pending. The following Phase 2 setup notes are historical.
+
+Use a project you explicitly choose; this phase has not created or paid for a service. Current server SDKs: @supabase/ssr 0.12.7 and @supabase/supabase-js 2.117.3. [Official Next.js server-side guide](https://supabase.com/docs/guides/auth/server-side/nextjs) was checked on 2026-10-11.
+
+1. Apply migrations 202610110001_foundation.sql then 202610110002_authenticated_rpcs.sql with the Supabase migration administrator. The second adds atomic owner-derived RPCs and storage/readback fields. Existing direct table write grants remain revoked. Review local migration tests and repeat isolation tests against a nonproduction project.
+2. Set server environment SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY (or legacy SUPABASE_ANON_KEY). The adapter uses the authenticated user's cookie token and does not use SUPABASE_SERVICE_ROLE_KEY. Do not set a service-role secret in client code.
+3. Configure a Supabase Auth provider or intentionally enable anonymous sign-in, redirect allowlist and abuse controls in your own project. No sign-in screen is added by Codex; Antigravity owns that flow. Use matching cookie-aware @supabase/ssr browser authentication when implementing it. Publishable URL/key can be exposed intentionally for sign-in; service-role/Adaption keys cannot.
+4. Set APP_ORIGIN to the exact deployment origin and INSIGHTFLOW_WRITES_ENABLED=true only after remote migrations/auth checks pass. Production writes fail closed without APP_ORIGIN. Keep the read-only official demo separate from private workspaces. No client-provided owner or workspace ID is accepted.
+5. Verify invalid/expired/forged sessions return 401; external Origin returns 403; malformed JSON/CSV returns 400; oversize files return 413; wrong file type returns 415; unknown/inaccessible private batch or issue returns 404. Check two signed-in users cannot read or change each other's data. Test duplicate CSV retries and transaction rollback.
+
+src/proxy.ts refreshes API-session cookies through getClaims; authenticated handlers use getUser against Auth before using the client. Responses use no-store. No server authorization depends on getSession's unverified user. All RPCs derive actor from auth.uid(), create one private workspace per owner, and reject demo writes. SECURITY DEFINER functions have empty search_path and execute grants only to authenticated, not anonymous/public. Own-workspace imports, issue status updates and action creation are the only exposed mutations. No direct table writes or deletion APIs are granted.
+
+Authentication and transaction boundaries have local tests with cookie/Auth mocks and real SQL executed in PGlite. No remote Supabase credential, migration application or remote RLS result has been obtained. Local success is not a deployment claim.

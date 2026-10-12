@@ -1,0 +1,62 @@
+# Phase 6B — two offline pilots, transfer and spending pending
+
+Prepared on 2026-10-11 from main `633b077b7270309cedb3e6859013d876aaf7842a`. The user expressly prohibited official-data upload without organizer permission and requested a separate original synthetic fallback. No authenticated Adaption call, upload, estimate, adaptation, download, DB write or deployment was performed. `INSIGHTFLOW_WRITES_ENABLED=false` remains unchanged. No provider dataset/run IDs, credit quote, available balance, actual usage or accuracy have been obtained. An advertised 50-credit allowance is not a verified balance.
+
+## Exact inputs and provenance
+
+All source text, proposals, gold templates and provider artifacts remain in ignored `artifacts/adaption/`. These files are local deliverables; Git alone does not preserve them. Back them up privately without transferring official data to another service. Safe hash-only evidence is in `docs/ADAPTION_PHASE6B_READINESS.json`.
+
+| Input | Official option | Synthetic fallback |
+| --- | --- | --- |
+| Folder | `artifacts/adaption/phase6b-official/` | `artifacts/adaption/phase6b-synthetic/` |
+| Source kind | `official_csv` | `synthetic_original` |
+| Source rows / source patterns | 7,000 / 320 | 25 / 25 |
+| Pilot rows | 25 unchanged original patterns, same order | 25 newly authored examples |
+| Source SHA-256 | `82b09450e0e5144c4a21cb33a9556dab6afd7618228496e7f4c321f687250c41` | `6fb043f679dcd5053504cccf81e2da32acdf75e23cd6cb400dff4a7df2aa68a4` |
+| Upload CSV SHA-256 | `637552a2135b1f84c26da6fdbf05540a2a8264f713362c9d1e1cc4d21e999e3e` | `809be152bac490a6b230152d53d0e71c21478469f313e96b5523b3583c2dd2f2` |
+| Human gold approvals | 0 / 25 | 0 / 25 |
+| Transfer state | Blocked: permission unconfirmed | Original authorship; exact input/user transfer review pending |
+
+Both configs have canonical SHA-256 `604f3b25ab21ad7c3d74b1e572c1fe95a1f4dd004e547a51be7819ef279d738b`. Each `pilot.csv` contains **only** `review,normalized_hash`; source categories, frequency, source-row numbers, gold, proposals and the full corpus are excluded. The adaptation configuration supplies a universal instruction/schema with review/hash context, maximum 25 rows, instruction-dataset output, all three recipes disabled and language expansion explicitly null. Review both `manifest.json` and `config.json` before authorization. The source hash binds the synthetic `source.csv` separately; it is not the official checksum.
+
+The original Phase 4 `pilot.csv`, `human-review.csv`, `manifest.json` and `config.json` were preserved. Original pilot SHA remains `bf9610df9f13b192ab268bcd1db7dac7c85fabe345ac25a32e06cd8846fc5a3f`. Smaller payloads are derivatives, not regenerated official samples. The new local manifests contain only the selected 25 patterns. Neither option uploads the full dataset.
+
+## Human review procedure
+
+Each folder contains:
+
+- `gold-source-only.md`: all 25 original texts and hashes, with no proposed answers. Read this first to reduce anchoring.
+- `human-review.csv`: independent gold template; all labels, reviewer identities, timestamps and attestations are blank. Enter sentiment, severity, issue types as a JSON string array, negation interpretation, mixed flag (true/false/unknown), aspects as JSON objects with topic/sentiment/exact evidenceQuote, reviewer, timezone-aware ISO review time, independence attestation and notes; mark verified only after actual human review. `[]` means no issue; `unknown` is valid. Do not derive gold from proposals, heuristics or provider completions. If suggestions were viewed, disclose that in the attestation; use a fresh independent reviewer where possible.
+- `review-sheet.md` and `proposals.json`: explicitly assistant-proposed, unreviewed labels, confidence null, exact evidence, negation, mixed-sentiment flags and decisions. These are not provider annotations or gold. Approve/edit gold separately, never change proposal origin to verified.
+- `pii-screen.json`: no email/URL/handle/long-number matches in either pilot. Generic anonymous text was manually inspected during preparation, but human PII approval remains pending; screening cannot establish absence of all PII.
+- `transfer-approval.json`: unapproved, exact manifest/input/config hashes, blank reviewer/time/permission evidence and false PII/input approval flags. A filled record supplements explicit user authorization; it cannot grant authorization itself.
+
+All 50 examples are valid nonempty bounded texts with exact hashes and verbatim evidence; none was removed. Decisions remain: neutral versus positive reassurance, delay plus mitigation versus mixed sentiment, resolved versus unresolved service, unsupported severity, reported fraud versus established fraud, and issue identifiers such as `slow_service`, `counterfeit_product`, `misrepresented_product`, `undelivered_order`. Severity never follows frequency. Each sheet lists row-specific ambiguities. Synthetic row 17 describes a contradictory promise, not genuine praise; its overall proposed sentiment is negative. Positive negation must not create an accusation. Final taxonomy and aspect truth require human approval.
+
+Synthetic examples were authored specifically for this project with different concrete scenarios. Offline screening against all 320 normalized official patterns found 0 exact matches, 0 shared six-word phrases, 0 rows at/above the 0.65 sequence-similarity threshold; maximum observed similarity was 0.476684. Scores are novelty screening, not model confidence, accuracy, or legal proof. `novelty.json` retains each source hash and nearest official hash for local review. Human originality review remains required.
+
+## Permission and credentials
+
+The [event rules](https://unstop.com/hackathons/build-battle-frontend-arena-1755980/amp) allow AI APIs and identify the sponsor, while requiring compliance with dataset/asset terms. Sponsorship alone does not establish permission to transfer the competition reviews. No explicit transfer clause or written organizer permission was found; the user confirmed none is available. Required before the official option: dataset-use terms or written organizer permission expressly allowing these 25 texts to be processed by Adaption under its retention/usage terms. Synthetic input is independent of that permission blocker, but the user must approve its exact content and transfer.
+
+The key is present in ignored `.env.local` and parses through `scripts/adaption/local_secrets.py`; its validity/account balance has **not** been tested. Only `ADAPTION_API_KEY` is loaded, with process-environment precedence, no shell expansion or unrelated secret import. No key values are logged. For future separately authorized provider commands use `.venv\Scripts\python.exe scripts/adaption/pipeline.py ... --secrets-file .env.local`; offline commands never load it. Keep this key off Vercel/client JavaScript and out of Git. Existing `npm run adaption:*` provider commands use the default Python; use the explicit virtualenv executable to get the installed SDK.
+
+## SDK and future provider gates
+
+`adaption==0.14.0` is installed only in ignored `.venv`. Its actual `DatasetsResource` signatures/types were inspected offline: `upload_file(...,processing_mode='adapt')`, `adapt(...,estimate=True|False,**config)`, `get_status`, `download(...,file_format='jsonl').read()`, and `get_evaluation` exist. ColumnMapping includes `universal_prompt` and context. The SDK accepts the prepared config shape; remote configuration acceptance remains unverified. Its adapt response exposes estimate credits/minutes, multiplier, multimodal pricing and run ID, but no available-credit balance or hard spend cap. Current [quickstart](https://docs.adaptionlabs.ai/adaptive-data-quickstart) and [adapt reference](https://docs.adaptionlabs.ai/api/resources/datasets/methods/adapt/) describe estimate-only validation without starting adaptation.
+
+Do **not** run the following stages now. Separate user authorization is required for every provider stage; hashes/flags are safeguards only.
+
+1. Human approves all 25 gold reviews independently, exact sample/config, PII, provenance and transfer. Official option additionally needs explicit organizer permission. Choose one folder; do not upload both by default. Review provider transfer/retention and ingestion/estimate charging terms. The new profile refuses upload before approved gold and the exact transfer record, before client creation or attempt reservation.
+2. Obtain permission for that single upload/preprocessing and non-executing estimate, including any disclosed ingestion charges. The exact quote is unavailable before upload; do not imply a cost has already been reviewed. Once authorized: `.venv\Scripts\python.exe scripts/adaption/pipeline.py upload --folder artifacts/adaption/CHOSEN_FOLDER --secrets-file .env.local --allow-network --approve-transfer REVIEWED_PILOT_SHA256`. The helper uploads only pilot.csv, not the review bundle. Record actual dataset ID. Status must be `awaiting_input` with exactly 25 rows; row count is not proof of byte-identical content. Verify provider source preview/export correspondence under separately authorized read access before execution. Current runner checks row count; provider content verification remains a real post-upload task.
+3. Separately authorized estimate: `.venv\Scripts\python.exe scripts/adaption/pipeline.py estimate --folder artifacts/adaption/CHOSEN_FOLDER --secrets-file .env.local --allow-network --dataset-id ACTUAL_DATASET_ID --approve-estimate REVIEWED_CONFIG_SHA256`. It records the genuine quote and config, requires estimate true/no run ID and leaves available balance null. Stop on errors, unexpected charges, missing quote or content mismatch. Obtain actual available balance privately from the account if not returned; never substitute advertised allowance.
+4. Present actual quote, account balance, config and `estimate.json` SHA for **separate one-run spending approval**. The local max-credits check is not a provider billing cap. No execution is permitted merely because upload/quote was approved. Preserve exclusive attempt ledgers; uncertain submissions require manual reconciliation, never delete locks or automatically retry.
+5. After a separately authorized run/download, inspect real output columns and write an explicit mapper; never invent field mapping/run IDs. Validate every source hash, exact evidence, null confidence and unreviewed provenance. Compare sentiment/severity/topic-set agreement against independent gold on the same patterns; report denominator/disagreements. Blank gold yields null accuracy. Require independent human completion-hash approvals before exporting curated training JSONL.
+
+## Smallest truthful product integration
+
+Use the existing local `validate-adaption` and `curate-adaption` workflow for both source kinds. Synthetic results cannot be attached to official feedback as annotations. Store a validated, human-approved artifact separately with real dataset/run IDs, sourceKind/source/config/artifact hashes, actual provider status, mapper version and approved-completion evidence. Preserve the original text and evidence. Keep provider dataset-quality grades distinct from task agreement and report them only if `get_evaluation` actually returns them; no evaluation call was made here. Generated answers are candidates, not independent proof of classification accuracy. No custom model training was performed.
+
+After separate approval for persistence, attach sanitized genuine run provenance to an owned private batch through reviewed administrative access; keep raw exports/credentials private. Data Lab can use its existing run-summary shape for actual IDs/status/processed rows and genuine credits only. No fabricated pending run is inserted for offline preparation. Add source-kind/curation/evaluation metadata in a coordinated additive contract with Antigravity only when real artifacts exist; do not change frozen v1 or redesign screens now. Render synthetic source labeling conspicuously and keep official analytics heuristic until a separately validated classifier exists.
+
+Codex changes scripts, offline analysis validation, tests and documentation. A narrow denied-fraud validation gap was repaired with regression cases for denial-only and separately affirmative clauses. Antigravity retains screens/components; no frontend, API contract, database or Auth changes were made. Execution evidence and check results are recorded in the companion JSON.
