@@ -111,8 +111,8 @@ def prepare(source: Path, output: Path, size: int):
     (output / "manifest.json").write_text(canonical(manifest)+"\n",encoding="utf-8")
     print(json.dumps({"status":"prepared_offline","sourceRows":7000,"distinctPatterns":320,"pilotRows":len(selected),"configSha256":config_hash,"networkCalls":0,"output":str(output)},indent=2))
 
-def estimate(folder: Path, dataset_id: str, allow_network: bool, approve_estimate=None):
-    return operations.estimate(folder, dataset_id, allow_network, approve_estimate)
+def estimate(folder: Path, dataset_id: str, allow_network: bool, approve_estimate=None, refresh_from=None, max_credits=None):
+    return operations.estimate(folder, dataset_id, allow_network, approve_estimate, refresh_from, max_credits)
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
@@ -123,11 +123,16 @@ def main():
         provider.add_argument("--folder",type=Path,default=ROOT/"artifacts/adaption")
         provider.add_argument("--allow-network",action="store_true")
         provider.add_argument("--secrets-file", type=Path, help="Explicit ignored local .env.local; only ADAPTION_API_KEY is loaded")
-        if command=="upload": provider.add_argument("--approve-transfer")
+        if command=="upload":
+            provider.add_argument("--approve-transfer")
+            provider.add_argument("--defer-adaption", action="store_true", help="Reviewed synthetic CSV only: lower-level deferred create/PUT/complete, no adaptation launch")
         elif command=="estimate":
             provider.add_argument("--dataset-id",required=True); provider.add_argument("--approve-estimate")
+            provider.add_argument("--refresh-from", help="Explicitly authorized reconciliation of recorded estimate-readiness SHA; preserves old ledger")
+            provider.add_argument("--max-credits",type=float)
         elif command=="execute":
             provider.add_argument("--approve-spend"); provider.add_argument("--max-credits",type=float)
+            provider.add_argument("--idempotency-key", help="Stable key bound to this one authorized dataset/config run")
         else: provider.add_argument("--approve-run")
     validate=subs.add_parser("validate"); validate.add_argument("--input",type=Path,required=True); validate.add_argument("--manifest",type=Path,default=ROOT/"artifacts/adaption/manifest.json"); validate.add_argument("--provenance",type=Path,required=True); validate.add_argument("--human-review",type=Path,default=ROOT/"artifacts/adaption/human-review.csv")
     args=parser.parse_args()
@@ -138,11 +143,11 @@ def main():
     if args.command=="prepare":
         prepare(args.source,args.output,args.size)
     elif args.command=="estimate":
-        print(json.dumps(estimate(args.folder,args.dataset_id,args.allow_network,args.approve_estimate),indent=2))
+        print(json.dumps(estimate(args.folder,args.dataset_id,args.allow_network,args.approve_estimate,args.refresh_from,args.max_credits),indent=2))
     elif args.command=="upload":
-        print(json.dumps(operations.upload(args.folder,args.allow_network,args.approve_transfer),indent=2))
+        print(json.dumps(operations.upload(args.folder,args.allow_network,args.approve_transfer,args.defer_adaption),indent=2))
     elif args.command=="execute":
-        print(json.dumps(operations.execute(args.folder,args.allow_network,args.approve_spend,args.max_credits),indent=2))
+        print(json.dumps(operations.execute(args.folder,args.allow_network,args.approve_spend,args.max_credits,args.idempotency_key),indent=2))
     elif args.command=="download":
         print(json.dumps(operations.download(args.folder,args.allow_network,args.approve_run),indent=2))
     else:

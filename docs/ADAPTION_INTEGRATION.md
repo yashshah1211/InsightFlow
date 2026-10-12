@@ -1,7 +1,10 @@
 # Adaption boundary — no Phase 1 jobs
 
-Submission status, 2026-10-12: offline preparation and a prior authenticated SDK
-read are complete; upload, quote, processing and adapted output are not. See
+Submission status, 2026-10-12: one real Adaptive Data run completed on 25 original
+synthetic reviews, yielding 25 validated but unreviewed training candidates.
+The separate aggregate Data Lab proof is prepared for release review; no model
+was trained or activated. Independent agreement is mixed and provider grading
+declined. Source/gold/output/account details remain private. See
 [current status and sanitized proof](ADAPTION_SUBMISSION_STATUS.md). Earlier
 phase-specific no-connection/blank-review statements below are historical.
 

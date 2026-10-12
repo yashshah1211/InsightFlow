@@ -1,8 +1,9 @@
 # Architecture — Phase 1 baseline and Phase 2 extension
 
 Release note, 2026-10-12: the current six-screen HTTPS app has real cookie Auth,
-owner-scoped persistence and 32 hosted acceptance checks. Adaption SDK connectivity
-is verified, but provider processing/output is incomplete. See the
+owner-scoped persistence and 32 hosted acceptance checks. One real Adaption synthetic pilot completed; 25 returned candidates passed
+structural/evidence checks and zero are human-approved. Static aggregate proof
+is prepared in Data Lab separately from batch analytics; no classifier is trained. See the
 [submission architecture](SUBMISSION_ARCHITECTURE.md) and
 [current Adaption status](ADAPTION_SUBMISSION_STATUS.md). The phase notes below
 are historical snapshots; their pending/no-deployment statements are not current.

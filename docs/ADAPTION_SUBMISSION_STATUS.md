@@ -1,43 +1,37 @@
-# Adaption submission status — no processing result
+# Adaption submission explanation — one real completed synthetic pilot
 
-Current evidence supersedes historical no-connection statements in earlier phase
-notes. No provider request was made during submission packaging.
+InsightFlow used Adaption Adaptive Data to produce structured customer-feedback
+training candidates from **25 original synthetic reviews**. Exactly one real run
+succeeded and returned 25 completions. All 25 exact source/hash, schema and
+verbatim-evidence checks passed. Independently approved reference labels stayed
+local and were not uploaded. **All generated candidates remain unreviewed, with
+zero approved training rows and no trained classifier or automatic activation.**
 
-| Item | Actual status |
-| --- | --- |
-| SDK | Pinned/installed adaption 0.14.0 in ignored local .venv |
-| Connection | Prior read-only GET /api/v1/datasets returned HTTP 200 and parsed via SDK on 2026-10-11 |
-| Offline input | 25 original synthetic reviews, independently human-approved, source/hash/schema validated |
-| Official input | Transfer blocked; not uploaded or published |
-| Dataset creation/upload | Not performed; dataset ID null |
-| Preprocessing/adaptation/training | Not started; run ID null |
-| Estimate | Not requested; actual quote unavailable |
-| Adapted output/evaluation | None downloaded or independently validated |
-| Accuracy/quality improvement | Unavailable; no numeric claim |
-| Current balance/actual usage | Not checked during packaging; no assumption from plan allowances |
-| Blocking gate | Account-specific credits-only/no-monetary-charge assurance remains unverified |
+Independent selected-pilot agreement was 16/25 versus heuristic 2/25 for sentiment,
+6/25 versus 2/25 for severity, and 6/25 versus 9/25 for exact issue sets. Mixed-label
+agreement was 19/20 known references; both aspect polarities survived in 3/4 mixed
+examples. Exact aspect-set agreement was 0/25 without synonym remapping. Semantic
+negation and unsupported explanations still require human review.
 
-The ignored preflight/continuation records contain actual connection evidence.
-[Public sanitized proof](ADAPTION_CONNECTION_PROOF.json) includes only method,
-version, status, timestamp and aggregate readiness. No keys, personal account or
-billing data, review texts, gold labels or reviewer identity are published. An
-authenticated list request proves connectivity, not processing.
+Provider dataset grading declined **10.0 → 9.2 (A → A)**. These signals are separate
+from independent label agreement, and neither establishes generalized accuracy
+or overall improvement. Adaption contributes to auditable candidate preparation
+and evaluation, not live sentiment inference. Existing feedback analytics remain
+heuristic; the official CSV and public ten-row fixture were not processed by this run.
 
-Planned contribution: structured customer-feedback training candidates from
-source review/hash context plus the frozen annotation schema. Preserve source
-evidence, validate exact hashes/quotes and compare outputs with independent human
-annotations; approve exact candidate hashes before curation. Generated completion
-labels are not independent ground truth or evidence of model training.
+The pinned SDK is 0.14.0. The actual opaque dataset/run identifiers, execution
+observations, checksums and aggregate results are in the
+[public proof JSON](../src/lib/analysis/adaption-public-proof.json).
+Source reviews, completions, gold, reviewer records, raw provider responses,
+account/billing data and credentials remain ignored/local. No provider operation
+runs during build/startup. Per-job actual billed usage remains unavailable.
 
-Before transfer, resolve billing assurance and review deferred-upload SDK
-compatibility. Upload completion may trigger preprocessing; the inspected helper
-does not propagate the lower-level defer flag. No zero-cost guarantee or provider
-hard spend cap is inferred. A real matching quote and separate approval are
-required before adaptation. A local max-credit check is not a billing ceiling.
-No gate is bypassed for submission.
+The separate Data Lab proof and docs are prepared locally for reviewed release;
+GitHub and the live Preview are not updated until separately authorized.
+[Field allowlist/reproduction](DATA_LAB_ADAPTION_PROOF.md) ·
+[Release plan](SUBMISSION_RELEASE_PLAN.md).
 
-**Ready:** honest integration explanation and real read-only connection proof.
-**Missing:** processing-run provenance and validated output. If the full problem
-statement/judging expects completed meaningful Adaption processing, that remains
-unmet. Ask the organizer for clarification; do not invent a result. This task
-does not contact others or authorize provider operations.
+No further provider run, Forge, AutoScientist, training or paid resource is needed
+or authorized for submission. The earlier connection proof remains historical
+connectivity evidence; it is not the processing proof. Phase 6C/6D workflow notes
+are historical audit records and must be read in their dated context.

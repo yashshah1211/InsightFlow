@@ -21,6 +21,7 @@ class OperationTests(unittest.TestCase):
         self.manifest, self.config = operations.load_pilot(self.folder)
         self.client = Mock()
         self.client.datasets.get_status.return_value = SimpleNamespace(dataset_id="test-dataset", status="awaiting_input", row_count=25)
+        self.client.datasets.get.return_value = SimpleNamespace(dataset_id="test-dataset", status="awaiting_input", row_count=25, run_id=None)
         self.client.datasets.upload_file.return_value = SimpleNamespace(dataset_id="test-dataset", status="pending")
         self.client.datasets.adapt.return_value = SimpleNamespace(run_id=None, estimate=True, estimated_credits_consumed=12)
         self.mock_client = patch.object(operations, "make_client", return_value=self.client)
@@ -76,6 +77,66 @@ class OperationTests(unittest.TestCase):
         self.client.datasets.adapt.assert_called_once_with("test-dataset", estimate=True, **self.config)
         with self.assertRaisesRegex(ValueError, "bound"):
             operations.estimate(self.folder, "other-dataset", True, self.manifest["configSha256"])
+
+    def test_prior_estimate_readiness_probe_prevents_duplicate_quote(self):
+        self.upload()
+        operations.reserve(self.folder, 'estimate-readiness', 'test-only')
+        self.factory.reset_mock()
+        with self.assertRaisesRegex(ValueError, 'already attempted'):
+            operations.estimate(self.folder, 'test-dataset', True, self.manifest['configSha256'])
+        self.factory.assert_not_called()
+        self.client.datasets.adapt.assert_not_called()
+
+    def previous_probe(self):
+        self.upload()
+        operations.write(self.folder / 'estimate-readiness.json', {'datasetId': 'test-dataset', 'runId': None,
+            'estimate': True, 'configuration': self.config, 'configSha256': self.manifest['configSha256'],
+            'pilotSha256': self.manifest['pilotSha256']})
+        operations.reserve(self.folder, 'estimate-readiness', 'test-only')
+        return operations.sha((self.folder / 'estimate-readiness.json').read_bytes())
+
+    def test_authorized_probe_confirmation_preserves_prior_evidence_and_blocks_repeats(self):
+        previous = self.previous_probe()
+        prior_bytes = (self.folder / 'estimate-readiness.json').read_bytes()
+        result = operations.estimate(self.folder, 'test-dataset', True, self.manifest['configSha256'], previous, 12)
+        self.assertEqual(result['confirmedFromQuoteSha256'], previous)
+        self.assertEqual((self.folder / 'estimate-readiness.json').read_bytes(), prior_bytes)
+        self.assertEqual(operations.read(self.folder / 'estimate.json')['estimatedCredits'], 12)
+        with self.assertRaisesRegex(ValueError, 'overwrite'):
+            operations.estimate(self.folder, 'test-dataset', True, self.manifest['configSha256'], previous, 12)
+        self.client.datasets.adapt.assert_called_once_with('test-dataset', estimate=True, **self.config)
+
+    def test_confirmed_quote_above_cap_is_recorded_without_executable_quote(self):
+        previous = self.previous_probe()
+        with self.assertRaisesRegex(ValueError, 'exceeds authorization'):
+            operations.estimate(self.folder, 'test-dataset', True, self.manifest['configSha256'], previous, 1)
+        self.assertFalse((self.folder / 'estimate.json').exists())
+        self.assertEqual(operations.read(self.folder / 'estimate-confirmed.json')['estimatedCredits'], 12)
+        with self.assertRaisesRegex(ValueError, 'already attempted'):
+            operations.estimate(self.folder, 'test-dataset', True, self.manifest['configSha256'], previous, 12)
+
+    def test_confirmed_quote_rejects_existing_run_before_any_submission(self):
+        previous = self.previous_probe()
+        self.client.datasets.get.return_value.run_id = 'already-submitted-test-run'
+        with self.assertRaisesRegex(ValueError, 'metadata'):
+            operations.estimate(self.folder, 'test-dataset', True, self.manifest['configSha256'], previous, 12)
+        self.client.datasets.adapt.assert_not_called()
+        self.assertFalse((self.folder / 'estimate-confirmed.attempt.json').exists())
+
+    def test_single_idempotent_execution_keeps_reviewed_config_and_attempt_binding(self):
+        self.quote()
+        prior_config = (self.folder / 'config.json').read_bytes()
+        self.client.datasets.adapt.return_value = SimpleNamespace(run_id='test-run', estimate=False)
+        approval = operations.sha((self.folder / 'estimate.json').read_bytes())
+        result = operations.execute(self.folder, True, approval, 12, 'test-one-run-key')
+        request_config = operations.read(self.folder / 'config.json')
+        request_config['job_specification']['idempotency_key'] = 'test-one-run-key'
+        self.client.datasets.adapt.assert_called_with('test-dataset', estimate=False, **request_config)
+        self.assertEqual((self.folder / 'config.json').read_bytes(), prior_config)
+        self.assertEqual(result['idempotencyKey'], 'test-one-run-key')
+        self.assertEqual(operations.read(self.folder / 'execute.attempt.json')['binding']['idempotencyKey'], 'test-one-run-key')
+        with self.assertRaisesRegex(ValueError, 'already attempted'):
+            operations.execute(self.folder, True, approval, 12, 'a-different-key-cannot-retry')
 
     def test_upload_not_ready_or_wrong_count_cannot_start_adaptation(self):
         self.upload()

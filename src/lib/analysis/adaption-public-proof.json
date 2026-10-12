@@ -1,0 +1,72 @@
+{
+  "version": "adaption-public-proof-1",
+  "provider": "Adaption Adaptive Data",
+  "sourceKind": "synthetic_original",
+  "status": "succeeded",
+  "datasetId": "cdfeaf20-f5ae-4bba-adec-d420f877e902",
+  "runId": "dataset-cdfeaf20-f5ae-4bba-adec-d420f877e902-1791804602894",
+  "submittedAt": "2026-10-12T11:30:02.814459+00:00",
+  "firstObservedSucceededAt": "2026-10-12T11:39:45.793531+00:00",
+  "timestampMeaning": "First observed success; provider did not expose completed_at",
+  "counts": {
+    "inputs": 25,
+    "outputs": 25,
+    "structurallyValidated": 25,
+    "humanApprovedCandidates": 0,
+    "unreviewedCandidates": 25
+  },
+  "agreement": {
+    "sentiment": {
+      "candidate": 16,
+      "heuristic": 2,
+      "denominator": 25
+    },
+    "severity": {
+      "candidate": 6,
+      "heuristic": 2,
+      "denominator": 25
+    },
+    "exactIssueSets": {
+      "candidate": 6,
+      "heuristic": 9,
+      "denominator": 25
+    },
+    "mixedLabel": {
+      "correct": 19,
+      "denominator": 20
+    },
+    "mixedAspectPreservation": {
+      "preserved": 3,
+      "denominator": 4
+    },
+    "exactAspectSets": {
+      "correct": 0,
+      "denominator": 25
+    }
+  },
+  "providerGrading": {
+    "before": 10,
+    "after": 9.2,
+    "gradeBefore": "A",
+    "gradeAfter": "A",
+    "interpretation": "Provider dataset grading; not independent label accuracy"
+  },
+  "provenance": {
+    "manifestSha256": "cc1bc103f5351b10af878ce1eb52ae6f6d7a6405fe3462adb0fac8a8cb587ff4",
+    "sourceSha256": "6fb043f679dcd5053504cccf81e2da32acdf75e23cd6cb400dff4a7df2aa68a4",
+    "configSha256": "604f3b25ab21ad7c3d74b1e572c1fe95a1f4dd004e547a51be7819ef279d738b",
+    "rawOutputSha256": "a5daddc13ee4e0faaddc86398e06fb40d7d8fc4c045348eab9cc2b755cabedfc",
+    "normalizedOutputSha256": "0ac485839c44efd2608f319f58660d56540e5c1f4c6a159bb2a6baba25491589",
+    "mapperVersion": "insightflow-adaption-import-v1"
+  },
+  "modelTrained": false,
+  "annotationsActivated": false,
+  "limitations": [
+    "25 selected original synthetic reviews; pilot agreement is not generalized model accuracy.",
+    "Structural and verbatim evidence validation does not establish semantic correctness; negation interpretation still requires human review.",
+    "All generated candidates remain unreviewed; zero approved training candidates.",
+    "No classifier trained or activated; official records, public demo fixtures and private batch analytics remain heuristic.",
+    "Exact issue and aspect sets use literal matching without synonym remapping.",
+    "Per-job billed usage unavailable; account and billing details are intentionally excluded."
+  ]
+}

@@ -144,6 +144,17 @@ async function main() {
         if (path === '/') await expect(page.getByText('Development Fixture Active', { exact: true })).toBeVisible();
         if (path === '/reports') await expect(page.getByText('Executive Feedback Intelligence Briefing')).toBeVisible();
         if (path === '/data-lab') {
+          if (process.env.SMOKE_COMPLETED_PILOT === 'true') {
+            const section = page.getByRole('region', { name: 'Adaption Adaptive Data — Completed Synthetic Pilot', exact: true });
+            await expect(section).toBeVisible();
+            await expect(section.getByText('0/25', { exact: true })).toBeVisible();
+            await expect(section.getByRole('table', { name: 'Independent synthetic pilot agreement' })).toBeVisible();
+            await expect(section.getByText(/Provider grading declined: 10.0 → 9.2/)).toBeVisible();
+            await section.getByText('Actual run provenance and limitations', { exact: true }).click();
+            await expect(section.getByText('dataset-cdfeaf20-f5ae-4bba-adec-d420f877e902-1791804602894', { exact: true })).toBeVisible();
+            await expect(section.getByText(/no deployed trained classifier/)).toBeVisible();
+            await expect(page.getByText('No Adaption run or evaluation is recorded for this selected batch.', { exact: true })).toBeVisible();
+          }
           await expect(page.getByText('Official-source verification unavailable for this batch')).toBeVisible();
           await expect(page.getByText('Recorded credits: unavailable')).toBeVisible();
           await expect(page.getByText('Stored run provenance only. External account balance and unrecorded activity are unavailable.')).toBeVisible();

@@ -11,6 +11,7 @@ import {
   IconRefresh,
 } from '@/components/icons';
 import { useAuth } from '@/components/insightflow/auth-context';
+import { AdaptionPilotProof } from '@/components/insightflow/adaption-pilot-proof';
 
 export default function DataLabPage() {
   const { selectedBatchId } = useAuth();
@@ -175,14 +176,16 @@ export default function DataLabPage() {
         />
       </div>
 
-      {/* Adaption Adaptive Data Section (TRUTHFUL & UNCOMPROMISED) */}
+      <AdaptionPilotProof />
+
+      {/* Selected-batch run state remains separate from the completed pilot. */}
       <div className="bg-white rounded-xl border border-slate-200/90 p-6 shadow-xs space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
           <div>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-slate-400" />
               <h2 className="text-base font-bold text-slate-900">
-                Adaption Adaptive Data Readiness Status
+                Selected Batch — Adaption Readiness Status
               </h2>
               <span className="text-xs font-mono font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">
                 status: {adaption.status}
@@ -210,7 +213,8 @@ export default function DataLabPage() {
             <div>
               <strong className="text-slate-900">Verified Backend State:</strong>
               <p className="mt-0.5">
-                {adaption.evaluation.reason || 'No Adaption run or evaluation has been performed.'}
+                {adaption.runs.length === 0 ? 'No Adaption run or evaluation is recorded for this selected batch.' :
+                  (adaption.evaluation.reason || 'Evaluation is unavailable for the selected batch.')}
               </p>
             </div>
           </div>
@@ -218,10 +222,10 @@ export default function DataLabPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
             <div className="p-3 bg-white rounded-lg border border-slate-200 text-xs">
               <span className="font-semibold text-slate-900 block mb-1">
-                Offline Pilot Workflow Available:
+                Source and Gold Stay Separate:
               </span>
               <p className="text-slate-600 text-[11px] leading-relaxed">
-                The repository provides reproducible 25-pattern preparation with instruction prompts, category context and blank human-review labels. Preparation is separate from an Adaption run and is not verified by this API.
+                Local tools preserve source hashes and independent human labels. The completed synthetic pilot above is separate release evidence; it is not a stored run for this selected batch.
               </p>
             </div>
 
@@ -230,7 +234,7 @@ export default function DataLabPage() {
                 Explicit Approval Before Paid Work:
               </span>
               <p className="text-slate-600 text-[11px] leading-relaxed">
-                Paid execution is disabled in the current offline tooling. A visible quote and explicit approval are required before implementing a runner. This app does not know your external account balance.
+                Provider commands require a reviewed input, actual quote and separate authorization. No job runs from this app or on build/startup. Per-job usage and external account balance are unavailable here.
               </p>
             </div>
           </div>
@@ -248,7 +252,7 @@ export default function DataLabPage() {
                 <span className="text-[10px] bg-emerald-200 px-1.5 py-0.5 rounded font-mono">OFFLINE TOOL</span>
               </div>
               <p className="text-[11px] text-emerald-800 mt-1">
-                Curate 25-pattern pilot CSV from genuine feedback with prompt & context.
+                Curate permitted source reviews with exact hashes and independently reviewed reference labels.
               </p>
             </div>
 
@@ -275,7 +279,7 @@ export default function DataLabPage() {
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-800">
               <div className="font-bold flex items-center justify-between">
                 <span>4. Validate</span>
-                <span className="text-[10px] bg-slate-200 px-1.5 py-0.5 rounded font-mono">PENDING</span>
+                <span className="text-[10px] bg-slate-200 px-1.5 py-0.5 rounded font-mono">LOCAL TOOL</span>
               </div>
               <p className="text-[11px] text-slate-600 mt-1">
                 Validate real output and compare task quality against independent human labels and the heuristic baseline.

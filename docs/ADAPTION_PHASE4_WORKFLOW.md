@@ -1,5 +1,11 @@
 # Controlled Adaptive Data workflow — prepared, no provider calls
 
+Historical Phase 4 preparation below. The separately authorized Phase 6C
+continuation now has a real deferred synthetic upload and estimate, with no
+adaptation/output. See [current status](ADAPTION_SUBMISSION_STATUS.md) and
+[deferred operational boundaries](ADAPTION_PHASE6C_OPERATIONS.md). Do not reuse
+the historical nondeferred helper command for the reviewed synthetic profile.
+
 Phase 6B update: [current offline readiness and separate synthetic fallback](ADAPTION_PHASE6B_READINESS.md). Use those smaller reviewed payloads and explicit local secret-loader instructions for future authorized operations; the original Phase 4 pilot remains intact. Official transfer is blocked pending permission. No provider operation has occurred.
 
 Current source of truth, checked 2026-10-11: [Adaptive Data quickstart](https://docs.adaptionlabs.ai/adaptive-data-quickstart), [dataset upload completion](https://docs.adaptionlabs.ai/api/resources/datasets/subresources/upload/methods/complete_by_id), [dataset status](https://docs.adaptionlabs.ai/api/resources/datasets/methods/get_status), [application walkthrough](https://docs.adaptionlabs.ai/tutorials/adaptive-data-app-walkthrough/). The locally available 0.14.0 SDK wheel was inspected for actual upload/adapt/download signatures and response fields; it was not imported for a provider call. Optional SDK pin remains `adaption==0.14.0`. No account balance, quote, run, upload, actual usage or provider annotation was obtained.

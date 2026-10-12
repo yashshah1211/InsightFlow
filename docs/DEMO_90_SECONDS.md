@@ -19,12 +19,19 @@ that the private segment is omitted rather than simulate a save.
 | 39–53s | Decision Studio: objective switch and simulation sliders | “Safety, experience and operations use visible weights. Repetition has no direct scoring weight. These sliders explore hypothetical priorities, not predicted business results.” |
 | 53–68s | Pre-authenticated session: select existing four-row batch; show saved action/status | “Private imports and actions persist in real Supabase storage. Users discover only their own batches; reciprocal isolation and logout were tested on this hosted app.” |
 | 68–78s | Private Reports: correct batch briefing and CSV download | “Reports and exports follow the selected dataset and preserve provenance and limitations.” |
-| 78–90s | Data Lab: integrity and unavailable run/evaluation states | “Adaption’s authenticated SDK connection and independently reviewed synthetic pilot are ready. Processing awaits billing assurance and approval. No run, trained model or accuracy gain is claimed.” |
+| 78–90s | Data Lab: separate completed synthetic pilot card; agreement table and declined grading | “One real Adaption run generated 25 candidates from a separate synthetic pilot. Agreement was mixed and provider grading decreased, so all outputs await human review. The live app’s heuristic data is unchanged.” |
 
 Show all six real modules and keep the opening synthetic badge visible. Review
 the completed recording for exposure before uploading its link. The video host,
 format and length limit require organizer confirmation; 90 seconds is this
 project's prepared demo, not a verified event rule.
+
+Before recording the new Adaption segment, publish/deploy only after release
+manifest approval and verify the real hosted section. Until then the existing
+live Data Lab still lacks this proof. Show the aggregate card, never source
+reviews, completions, independent gold, reviewer details or provider account UI.
+Keep the separate 25-review source distinct from the ten demo records. No custom
+model training or general accuracy claim is supported.
 
 Judges need no login for public screens. For private functionality, the owner can
 operate a screen share or use organizer-approved dedicated reviewer access via

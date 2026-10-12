@@ -24,10 +24,10 @@ it('unknown language and negated praise do not become positive', () => {
   expect(annotateHeuristically('The packaging is blue.').confidence).toBeNull();
 });
 it.each([
-  'I faced several issues while placing my order on the website, but the support team was helpful and resolved them.',
-  'The ordering process was smooth, but the delivery was delayed.',
-  'The product arrived with some defects, but the seller was responsive and provided a replacement.',
-])('preserves positive and negative aspects in official conjunction samples: %s',text=>{
+  'The ticket kiosk had technical issues during our rehearsal, but the technician kept me informed.',
+  'Delivery was delayed for the workshop trays, but the tracking notes were excellent.',
+  'Our display stand is defective, but I love the spare-part guide.',
+])('preserves positive and negative aspects in authored conjunction samples: %s',text=>{
   const a=annotateHeuristically(text);
   expect(a.sentiment).toBe('mixed');
   expect(validateAnnotationEvidence(text,a)).toBe(true);
